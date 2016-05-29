@@ -15,6 +15,7 @@
 		B3DE0FA11CFA86D4002229BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DE0F9F1CFA86D4002229BD /* LaunchScreen.storyboard */; };
 		B3DE0FAC1CFA86D4002229BD /* PersistenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE0FAB1CFA86D4002229BD /* PersistenceTests.m */; };
 		B3DE0FB71CFA86D4002229BD /* PersistenceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE0FB61CFA86D4002229BD /* PersistenceUITests.m */; };
+		B3DE10051CFA9F26002229BD /* FourLines.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE10041CFA9F26002229BD /* FourLines.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B3DE0FB21CFA86D4002229BD /* PersistenceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DE0FB61CFA86D4002229BD /* PersistenceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistenceUITests.m; sourceTree = "<group>"; };
 		B3DE0FB81CFA86D4002229BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3DE10031CFA9F26002229BD /* FourLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourLines.h; sourceTree = "<group>"; };
+		B3DE10041CFA9F26002229BD /* FourLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourLines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				B3DE0F951CFA86D4002229BD /* AppDelegate.m */,
 				B3DE0F971CFA86D4002229BD /* ViewController.h */,
 				B3DE0F981CFA86D4002229BD /* ViewController.m */,
+				B3DE10031CFA9F26002229BD /* FourLines.h */,
+				B3DE10041CFA9F26002229BD /* FourLines.m */,
 				B3DE0F9A1CFA86D4002229BD /* Main.storyboard */,
 				B3DE0F9D1CFA86D4002229BD /* Assets.xcassets */,
 				B3DE0F9F1CFA86D4002229BD /* LaunchScreen.storyboard */,
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3DE0F991CFA86D4002229BD /* ViewController.m in Sources */,
+				B3DE10051CFA9F26002229BD /* FourLines.m in Sources */,
 				B3DE0F961CFA86D4002229BD /* AppDelegate.m in Sources */,
 				B3DE0F931CFA86D4002229BD /* main.m in Sources */,
 			);
@@ -501,6 +507,7 @@
 				B3DE0FBD1CFA86D4002229BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3DE0FBE1CFA86D4002229BD /* Build configuration list for PBXNativeTarget "PersistenceTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +516,7 @@
 				B3DE0FC01CFA86D4002229BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3DE0FC11CFA86D4002229BD /* Build configuration list for PBXNativeTarget "PersistenceUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +525,7 @@
 				B3DE0FC31CFA86D4002229BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

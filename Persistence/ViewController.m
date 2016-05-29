@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "FourLines.h"
+
+static NSString * const kRootKey = @"kRootKey";
 
 @interface ViewController ()
 
@@ -19,7 +22,7 @@
 - (NSString *)dataFilePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingString:@"/data.plist"];
+    return [documentsDirectory stringByAppendingString:@"/data.archive"];
 }
 
 - (void)viewDidLoad {
@@ -27,10 +30,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     NSString *filePath = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSArray *array = [[NSArray alloc] initWithContentsOfFile:filePath];
+        NSData *data = [[NSMutableData alloc] initWithContentsOfFile:filePath];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
+        FourLines *fourlines = [unarchiver decodeObjectForKey:kRootKey];
+        [unarchiver finishDecoding];
+        
         for (int i = 0; i < 4; i++) {
             UITextField *theField = self.lineFields[i];
-            theField.text = array[i];
+            theField.text = fourlines.lines[i];
         }
     }
     UIApplication *app = [UIApplication sharedApplication];
@@ -44,8 +51,14 @@
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
     NSString *filePath = [self dataFilePath];
-    NSArray *array = [self.lineFields valueForKey:@"text"];
-    bool success = [array writeToFile:filePath atomically:YES];
+    
+    FourLines *fourlines = [[FourLines alloc] init];
+    fourlines.lines = [self.lineFields valueForKey:@"text"];
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:fourlines forKey:kRootKey];
+    [archiver finishEncoding];
+    bool success = [data writeToFile:filePath atomically:YES];
     if (!success) {
         NSLog(@"Failed");
     } else {
