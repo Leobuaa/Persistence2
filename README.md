@@ -1,4 +1,3 @@
-# Persistence
+# Persistence2
 A demo of iOS
-
-Use property list file to store data
+Use archiving to store data
